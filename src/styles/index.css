@@ -1,0 +1,188 @@
+@import url("./fonts.css");
+
+* {
+  padding: 0;
+  margin: 0;
+  box-sizing: border-box;
+  list-style-type: none;
+  text-decoration: none;
+  font-family: Vazirmatn;
+}
+
+:root {
+  --color-secondary-900: rgb(17, 24, 39);
+  --color-secondary-800: rgb(31, 41, 55);
+  --color-secondary-700: rgb(55, 65, 81);
+  --color-secondary-600: rgb(75, 85, 99);
+  --color-secondary-500: rgb(107, 114, 128);
+  --color-secondary-400: rgb(156, 163, 175);
+  --color-secondary-300: rgb(209, 213, 219);
+  --color-secondary-200: rgb(229, 231, 235);
+  --color-secondary-100: rgb(243, 244, 246);
+  --color-secondary-50: rgb(249, 250, 251);
+  --color-secondary-0: rgb(255, 255, 255);
+
+  --color-primary-900: rgb(77, 112, 255);
+  --color-primary-800: rgb(92, 124, 255);
+  --color-primary-700: rgb(92, 124, 255);
+  --color-primary-600: rgb(128, 153, 255);
+  --color-primary-500: rgb(146, 167, 255);
+  --color-primary-400: rgb(164, 182, 255);
+  --color-primary-300: rgb(183, 197, 255);
+  --color-primary-200: rgb(201, 211, 255);
+  --color-primary-100: rgb(219, 226, 255);
+  --color-primary-50: rgb(228, 233, 255);
+
+  --border-radius-tiny: 3px;
+  --border-radius-sm: 5px;
+  --border-radius-md: 7px;
+  --border-radius-lg: 9px;
+
+  --color-success: rgb(0, 192, 115);
+  --color-warning: rgb(255, 153, 0);
+  --color-error: rgb(255, 71, 87);
+  --color-red-700: rgb(185, 28, 28);
+  --color-red-800: rgb(153, 27, 27);
+  --color-red-500: rgb(239, 68, 68);
+  --color-red-300: rgb(252, 165, 165);
+  --color-red-100: rgb(254, 226, 226);
+}
+
+body {
+  /* font-family: sans-serif; */
+  background-color: var(--color-secondary-100);
+}
+
+body {
+  font-family: Vazirmatn;
+}
+
+html {
+  font-size: 62.5%;
+}
+
+.container {
+  height: auto;
+  position: relative;
+  /* border: 3px solid green; */
+}
+
+.header {
+  margin-top: 10rem;
+  display: flex;
+  flex-direction: row;
+  justify-content: space-around;
+  align-items: center;
+}
+
+.title {
+  width: 250px;
+  height: 50px;
+  text-align: center;
+  color: var(--color-secondary-500);
+  font-size: 3.3rem;
+  font-weight: 800;
+}
+
+#search {
+  display: none;
+  width: 350px;
+  height: 50px;
+  padding: 0 2rem;
+  border-radius: 18px;
+  border: 1px solid var(--color-secondary-400);
+  background-image: url(/assets/images/search_icon.svg);
+  background-repeat: no-repeat;
+  background-size: 2rem;
+  background-position: 2rem;
+  font-size: 1.7rem;
+  font-weight: 400;
+}
+
+#search:focus {
+  outline-color: #dfdfdf;
+}
+
+.getinfo {
+  width: 60rem;
+  height: 10rem;
+  border-radius: 28px;
+  display: block;
+  background-color: var(--color-primary-600);
+  font-size: 3.5rem;
+  font-weight: 800;
+  color: var(--color-secondary-0);
+  border: none;
+  text-align: center;
+  margin: 15rem auto auto;
+  /* width: 30%; */
+}
+
+.getinfo:hover {
+  cursor: pointer;
+  background-color: var(--color-primary-900);
+}
+
+.content_table {
+  display: none;
+  background: var(--color-secondary-50);
+  height: auto;
+  margin: 5rem auto;
+  border: 1px solid var(--color-secondary-300);
+  max-width: 75%;
+  padding: 2rem;
+}
+
+.content_table_header {
+  color: var(--color-secondary-400);
+  margin: 2rem auto 2rem;
+  justify-items: center;
+  align-self: first baseline;
+  font-size: 18px;
+  font-weight: 700;
+}
+
+.table_header,
+.table_items {
+  display: grid;
+  grid-template-columns: 10px 130px 100px 100px 150px;
+  justify-content: space-between;
+  align-items: center;
+  text-align: center;
+  padding: 1rem 2rem;
+  font-size: 15px;
+  font-weight: 700;
+  border: 1px solid var(--color-secondary-100);
+}
+
+.table_header {
+  background-color: var(--color-secondary-100);
+  border-radius: 10px 10px 0px 0px;
+}
+
+.table_items {
+  background-color: var(--color-secondary-0);
+}
+
+.header_items,
+.items {
+  color: var(--color-secondary-400);
+}
+
+.header_sort_icon {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-evenly;
+  align-items: center;
+}
+
+.header_sort_icon i {
+  cursor: pointer;
+}
+
+.chevron {
+  transition: transform 200ms ease-out;
+}
+.asc {
+  transform: rotate(180deg);
+}
