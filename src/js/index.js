@@ -32,7 +32,8 @@ function createDomItems(restUrl) {
         <div class="items">${item.refId}</div>
         <div class="items">${new Date(item.date)
           .toLocaleDateString("fa-IR", options)
-          .replace(",", " ساعت ")}</div>
+          .split(",")
+          .join(" ساعت ")}</div>
         `;
         transactionsSection.appendChild(transactionItem);
       }
@@ -91,4 +92,8 @@ function sortData(e) {
 
   transactionsSection.innerHTML = "";
   createDomItems(`/transactions?_sort=${query}&_order=${sort}`);
+}
+
+function date(item) {
+  new Date(item).toLocaleDateString("fa-IR", options).split(",").concat([0]);
 }
