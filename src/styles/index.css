@@ -145,7 +145,7 @@ html {
 .table_header,
 .table_items {
   display: grid;
-  grid-template-columns: 10px 130px 100px 100px 150px;
+  grid-template-columns: 10px 130px 100px 100px 180px;
   justify-content: space-between;
   align-items: center;
   text-align: center;

@@ -30,10 +30,9 @@ function createDomItems(restUrl) {
         <div class="items">${item.type}</div>
         <div class="items">${item.price} ریال</div>
         <div class="items">${item.refId}</div>
-        <div class="items">${new Date(item.date).toLocaleDateString(
-          "fa-IR",
-          options
-        )}</div>
+        <div class="items">${new Date(item.date)
+          .toLocaleDateString("fa-IR", options)
+          .replace(",", " ساعت ")}</div>
         `;
         transactionsSection.appendChild(transactionItem);
       }
