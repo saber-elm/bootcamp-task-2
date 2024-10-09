@@ -3,6 +3,7 @@ const contentTable = document.querySelector(".content_table");
 const searchInput = document.querySelector("#search");
 const transactionsSection = document.querySelector(".content_table_items");
 const sortBtns = document.querySelectorAll(".fa-chevron-down");
+const itemTitles = document.querySelectorAll(".item-type");
 const exportBtn = document.querySelector(".export-btn");
 
 // -------- Get Data and show in DOM
@@ -24,20 +25,43 @@ function createDomItems(restUrl) {
     .get(`${restUrl}`)
     .then(({ data }) => {
       for (const item of data) {
-        const transactionItem = document.createElement("div");
-        transactionItem.classList.add("table_items");
+        const transactionItem = document.createElement("tr");
+        // transactionItem.classList.add("table_items");
         transactionItem.innerHTML = `
-        <div class="items item-id">${item.id}</div>
-        <div class="items item-type ${
-          item.type === "افزایش اعتبار" ? "text-color-green" : "text-color-red"
-        }">${item.type}</div>
-        <div class="items item-price">${item.price} ریال</div>
-        <div class="items item-refid">${item.refId}</div>
-        <div class="items item-date">${new Date(item.date)
+        <td>${item.id}</td>
+        <td>${item.type}</td>
+        <td>${item.price} ریال</td>
+        <td>${item.refId}</td>
+        <td>${new Date(item.date)
           .toLocaleDateString("fa-IR", options)
-          .replace(",", " ساعت ")}</div>
+          .replace(",", " ساعت ")}</td>
         `;
         transactionsSection.appendChild(transactionItem);
+
+        // itemTitles.forEach((item) => {
+        //   if (item.type.includes("افزایش")) {
+        //     item.classList.add("text-color-green");
+        //   } else if (item.type.includes("برداشت")) {
+        //     item.classList.add("text-color-red");
+        //   }
+        // });
+
+        // for (const item of data) {
+        //   let itemsType = item.type;
+        //   // console.log(itemsType);
+        //   if (item.type.includes("افزایش")) {            // item.style.color = "green";
+        //     console.log("yes");
+        //     // itemsType.classList.add("text-color-green");
+        //   } else {
+        //     console.log("no");
+        //   }
+        // }
+        // itemTitles.forEach((title) => {
+        //   console.log(title);
+        //   // title.addEventListener("DOMContentLoaded", (event) => {
+        //   //   console.log("loaded");
+        //   // });
+        // });
       }
     })
     .catch((err) => {
@@ -99,17 +123,5 @@ function sortData(e) {
 exportBtn.addEventListener("click", exportToExcel);
 
 function exportToExcel() {
-  const tableData = contentTable.outerHTML;
-  console.log(tableData);
-
-  // let a = document.createElement("a");
-  // a.href = `data:application/vnd.ms-excel, ${encodeURIComponent(tableData)}`;
-  // a.download = "downloaded_file_" + getRandomNumbers() + ".xls";
-  // a.click();
-}
-function getRandomNumbers() {
-  let dateObj = new Date();
-  let dateTime = `${dateObj.getHours()}${dateObj.getMinutes()}${dateObj.getSeconds()}`;
-
-  return `${dateTime}${Math.floor(Math.random().toFixed(2) * 100)}`;
+  
 }
